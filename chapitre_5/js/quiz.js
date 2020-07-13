@@ -18,6 +18,40 @@ var questions = [
     }
 ];
 
+/*
+var elt_content = document.getElementById("contenu");
+for (var i=0; i<questions.length; i++){
+    var q = document.createElement("strong");
+    q.textContent = `Question ${i+1} : `;
+    elt_content.appendChild(q);
+
+    var s = document.createElement("i");
+    s.textContent = questions[i].enonce;
+    elt_content.appendChild(s);
+    elt_content.appendChild(document.createElement("br"));
+
+    var answer_div = document.createElement("div");
+    var but = document.createElement("button");
+    but.textContent = "Afficher la réponse";
+    but.addEventListener("click", function(e){
+        //var r = document.createElement("div");
+        //r.textContent = questions[i].reponse;
+        var ans = e.target.parentNode;
+        ans.innerHTML = "";
+        ans.textContent = questions[i].reponse;
+        //answer_div.appendChild(r);
+    })
+    answer_div.appendChild(but);
+    elt_content.appendChild(answer_div);
+}
+*/
+
+
+
+
+
+
+
 var i = 1; // Permet de numéroter les questions
 
 questions.forEach(function (question) {

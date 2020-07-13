@@ -7,6 +7,7 @@ document.getElementById("langages").innerHTML += '<li id="c">C</li>';
 // Modification du contenu textuel du premier titre
 document.querySelector("h1").textContent += " de programmation";
 
+
 // Définition de l'attribut "id" du premier titre
 //document.querySelector("h1").setAttribute("id", "titre");
 document.querySelector("h1").id = "titre";
@@ -44,12 +45,27 @@ document.getElementById("langages").replaceChild(bashElt, document.getElementByI
 // Suppression de l'élément identifié par "bash"
 document.getElementById("langages").removeChild(document.getElementById("bash"));
 
+
+
+// my exercice
+var elt = document.createElement("p");
+elt.appendChild(document.createTextNode("En voici une "))
+var elt_a = document.createElement("a");
+elt_a.setAttribute("href", "https://fr.wikipedia.org/wiki/Liste_des_langages_de_programmation");
+elt_a.appendChild(document.createTextNode("liste"))
+elt.appendChild(elt_a)
+elt.appendChild(document.createTextNode(" plus complète"))
+document.getElementById("contenu").insertAdjacentElement("afterend", elt);
+
+
+
+
 // Exercice 1 : ajout d'un paragraphe contenant un lien
-var pElt = document.createElement("p");
-var lienElt = document.createElement("a");
-lienElt.href = "https://fr.wikipedia.org/wiki/Liste_des_langages_de_programmation";
-lienElt.textContent = "liste";
-pElt.appendChild(document.createTextNode("En voici une "));
-pElt.appendChild(lienElt);
-pElt.appendChild(document.createTextNode(" plus complète."));
-document.getElementById("contenu").appendChild(pElt);
+//var pElt = document.createElement("p");
+//var lienElt = document.createElement("a");
+//lienElt.href = "https://fr.wikipedia.org/wiki/Liste_des_langages_de_programmation";
+//lienElt.textContent = "liste";
+//pElt.appendChild(document.createTextNode("En voici une "));
+//pElt.appendChild(lienElt);
+//pElt.appendChild(document.createTextNode(" plus complète."));
+//document.getElementById("contenu").appendChild(pElt);
