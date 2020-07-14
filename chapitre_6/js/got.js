@@ -38,6 +38,65 @@ function getPersonnages(codeMaison) {
     }
 }
 
+var form = document.querySelector("form");
+// create liste déroulante
+maisons.forEach(function(maison) {
+    var elt_opt = document.createElement("option");
+    elt_opt.setAttribute("value", maison.code);
+    elt_opt.textContent = maison.nom;
+    document.getElementById("maison").appendChild(elt_opt)
+})
+
+
+document.getElementById("maison").addEventListener("change", function (e) {
+    var codeMaison =  e.target.value;
+    var persos = document.getElementById("persos");
+    persos.innerHTML = ""
+    // get the value selected
+    var listPersos = getPersonnages(codeMaison);
+    listPersos.forEach(function(perso) {
+        var eltLi = document.createElement("li");
+        eltLi.textContent = perso;
+        persos.appendChild(eltLi);
+    })
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // Crée et renvoi un élément HTML <option>
 function creerElementOption(texte, valeur) {
     var element = document.createElement("option");
@@ -69,3 +128,4 @@ maisonElt.addEventListener("change", function (e) {
         persosElt.appendChild(creerElementLi(perso));
     });
 });
+*/

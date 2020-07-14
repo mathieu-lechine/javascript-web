@@ -24,6 +24,30 @@ var listePays = [
     "Azerbaïdjan"
 ];
 
+var suggs = document.getElementById("suggestions");
+var paysElt = document.querySelector("input")
+paysElt.addEventListener("input", function (e){
+    var txt = paysElt.value;
+    suggs.innerHTML = "";
+    listePays.forEach(function (pays) {
+        if (pays.indexOf(txt)>-1) {
+            var elt = document.createElement("div");
+            elt.textContent = pays;
+            elt.classList.add("suggestion");
+            elt.addEventListener("click", function(e){
+                var clickedTxt = e.target.textContent;
+                paysElt.value = clickedTxt;
+                suggs.innerHTML = "";
+            })
+            suggs.appendChild(elt);
+        }
+    })
+})
+
+
+
+/*
+
 var paysElt = document.querySelector("input");
 var suggestionsElt = document.getElementById("suggestions");
 
@@ -47,3 +71,5 @@ paysElt.addEventListener("input", function () {
         }
     });
 });
+
+*/
