@@ -1,6 +1,52 @@
 /*
 Exercice : ballon rebondissant
 */
+//parameter
+var xMin = 0;
+var vitesse = 10;
+
+
+
+var ballon_direction = 1;
+var ballon = document.getElementById("ballon");
+var cadre = document.getElementById("cadre");
+var animationId;
+var largeurBallon = parseFloat(getComputedStyle(ballon).width);
+
+document.getElementById("demarrer").addEventListener("click", function(e){
+    document.getElementById("demarrer").disabled = true;
+    document.getElementById("arreter").disabled = false;
+    
+    animationId = requestAnimationFrame(deplacerBallon);
+
+})
+
+
+document.getElementById("arreter").addEventListener("click", function(e){
+    document.getElementById("demarrer").disabled = false;
+    document.getElementById("arreter").disabled = true;
+
+    cancelAnimationFrame(animationId);
+})
+
+function deplacerBallon(){
+    var xBloc = parseFloat(getComputedStyle(ballon).left);
+    var xMax = parseFloat(getComputedStyle(cadre).width);
+    if((xBloc+largeurBallon>xMax) || (xBloc<xMin)) {
+        ballon_direction = ballon_direction * (-1);
+    }
+    ballon.style.left = (xBloc + ballon_direction*vitesse) + "px";
+    // Demande au navigateur d'appeler deplacerBloc dès que possible
+    animationId = requestAnimationFrame(deplacerBallon);
+}
+
+
+
+
+
+
+
+/*
 
 var cadre = document.getElementById("cadre");
 var ballon = document.getElementById("ballon");
@@ -46,3 +92,5 @@ arreterBtn.addEventListener("click", function () {
     // Arrête l'animation
     cancelAnimationFrame(animationId);
 });
+
+*/

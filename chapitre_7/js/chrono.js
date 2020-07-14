@@ -3,6 +3,32 @@ Exercice : chronomètre
 */
 
 var bouton = document.querySelector("button");
+var on = false;
+var intervalId;
+
+function increase_compteur(){
+    var compteur = document.getElementById("compteur");
+    compteur.textContent = Number(compteur.textContent) + 1;
+}
+
+bouton.addEventListener("click", function(e){
+    if(on){
+        clearInterval(intervalId);
+        document.querySelector("button").textContent = "Démarrer";
+    } else {
+        intervalId = setInterval(increase_compteur, 1000);
+        document.querySelector("button").textContent = "Arrêter";
+    }
+    on = !on;
+})
+
+
+
+
+
+
+/*
+var bouton = document.querySelector("button");
 var compteurElt = document.getElementById("compteur");
 var intervalId = null;
 var demarre = false; // Etat du chronomètre : démarré (true) ou arrêté (false)
@@ -24,3 +50,4 @@ bouton.addEventListener("click", function () {
     // Inverse la valeur de l'état du chronomètre
     demarre = !demarre;
 });
+*/
